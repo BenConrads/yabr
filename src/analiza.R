@@ -1,7 +1,7 @@
 rm(list=ls())
 setwd('C:\\Users\\Ben\\Documents\\SGH\\MAGISTERSKIE\\Praca')
-source('odczyt.R')
-source('text_library.R')
+source('src/odczyt.R')
+source('src/text_library.R')
 
 library(tm)
 library(qdap)
@@ -21,7 +21,9 @@ speech_vec <- corpus_list$content %>%
   map_chr(unlist)
 rm(corpus_list)
 
+# load("data/POS.RData")
 speeches_pos <- pos(speech_vec, parallel = T)
-save(speeches_pos, file="POS.RData")
+save(speeches_pos, file="data/POS.RData")
 rm(speech_vec)
 
+#write.csv(all_speakers, "speakers.csv")
