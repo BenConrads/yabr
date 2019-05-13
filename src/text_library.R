@@ -39,8 +39,10 @@ num2word <- function(x) {
 deabbreviate <- function(x) {
   proc_text <- str_replace_all(x,"Mr[ \\.]", "Mister ")
   proc_text <- str_replace_all(proc_text, "Ms[ \\.]", "Miss ")
+  proc_text <- str_replace_all(proc_text, "\\.com", "com")
   proc_text <- str_replace_all(proc_text, "Mrs[ \\.]", "Mistress ")
   proc_text <- str_replace_all(proc_text, "n't", " not")
+  proc_text <- str_replace_all(proc_text, "'ll", " will")
   proc_text <- str_replace_all(proc_text, "(Dr[ \\.]|Ph\\.D[ \\.])", "Doctor ")
   proc_text <- str_replace_all(proc_text, "Gov[ \\.]", "Governor ")
   proc_text <- str_replace_all(proc_text, "Hon[ \\.]", "Honorable ")
