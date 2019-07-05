@@ -1,37 +1,37 @@
 library(ggpol)
 library(ggplot2)
 
-### Podzia≈Ç partyjny Senatu
+### Podzia≥ partyjny Senatu
 sen_frame <- data.frame(party=c("Democrats", "Republicans"), seats=c(47, 53))
 sen_frame %>%
   ggplot(aes(seats=seats, fill=party)) +
   geom_parliament() +
   scale_fill_manual(values=c('#0015BC', "#DE0100"),
-                     labels=c("Partia Demokratyczna", "Partia Republika≈Ñska"),
-                     name="Parta") +
+                     labels=c("Partia Demokratyczna", "Partia RepublikaÒska"),
+                     name="Partia") +
   xlab("") +
   ylab("") +
-  ggtitle("Podzia≈Ç miejsc w Senacie") +
+  ggtitle("Podzia≥ miejsc w Senacie") +
   scale_x_continuous(breaks=NULL) +
   scale_y_continuous(breaks=NULL) +
   theme_minimal()
   
-### Podzia≈Ç partyjny Izby Reprezentant√≥w
+### Podzia≥ partyjny Izby ReprezentantÛw
 hor_frame <- data.frame(party=c("Democrats", "Republicans", "Vacants"), seats=c(235, 197, 3))
 hor_frame %>%
   ggplot(aes(seats=seats, fill=party)) +
   geom_parliament() +
   scale_fill_manual(values=c('#0015BC', "#DE0100", "#AAAAAA"),
-                    labels=c("Partia Demokratyczna", "Partia Republika≈Ñska", "Wakat"),
+                    labels=c("Partia Demokratyczna", "Partia RepublikaÒska", "Wakat"),
                     name="Parta") +
   xlab("") +
   ylab("") +
-  ggtitle("Podzia≈Ç miejsc w Izbie Reprezentant√≥w") +
+  ggtitle("Podzia≥ miejsc w Izbie ReprezentantÛw") +
   scale_x_continuous(breaks=NULL) +
   scale_y_continuous(breaks=NULL) +
   theme_minimal()
 
-### Sk≈Çad wypowiadajƒÖcych siƒô senator√≥w
+### Sk≥ad wypowiadajπcych siÍ senatorÛw
 speeches_df %>%
   filter(house=='Senate') %>%
   distinct(speaker,club) %>%
@@ -40,16 +40,16 @@ speeches_df %>%
   ggplot(aes(seats=seats, fill=club)) +
   geom_parliament() +
   scale_fill_manual(values=c('#0015BC', "#DE0100"),
-                    labels=c("Partia Demokratyczna", "Partia Republika≈Ñska"),
+                    labels=c("Partia Demokratyczna", "Partia RepublikaÒska"),
                     name="Parta") +
   xlab("") +
   ylab("") +
-  ggtitle("Podzia≈Ç wypowiadajƒÖcych siƒô senator√≥w") +
+  ggtitle("Podzia≥ wypowiadajπcych siÍ senatorÛw") +
   scale_x_continuous(breaks=NULL) +
   scale_y_continuous(breaks=NULL) +
   theme_minimal()
 
-### Sk≈Çad wypowiadajƒÖcych siƒô kongresmen√≥w
+### Sk≥ad wypowiadajπcych siÍ kongresmenÛw
 speeches_df %>%
   filter(house!='Senate') %>%
   distinct(speaker,club) %>%
@@ -58,53 +58,53 @@ speeches_df %>%
   ggplot(aes(seats=seats, fill=club)) +
   geom_parliament() +
   scale_fill_manual(values=c('#0015BC', "#DE0100"),
-                    labels=c("Partia Demokratyczna", "Partia Republika≈Ñska"),
+                    labels=c("Partia Demokratyczna", "Partia RepublikaÒska"),
                     name="Parta") +
   xlab("") +
   ylab("") +
-  ggtitle("Podzia≈Ç wypowiadajƒÖcych siƒô kongresmen√≥w") +
+  ggtitle("Podzia≥ wypowiadajπcych siÍ kongresmenÛw") +
   scale_x_continuous(breaks=NULL) +
   scale_y_continuous(breaks=NULL) +
   theme_minimal()
 
 
-### Sk≈Çad wszystkich przem√≥w
+### Sk≥ad wszystkich przemÛw
 speeches_df %>%
   ggplot(aes(x=factor(1), y=..count../sum(..count..), fill=club)) +
   geom_bar(width=1) +
   coord_polar("y") +
   scale_fill_manual(values=c('#0015BC', "#DE0100"),
-                    labels=c("Partia Demokratyczna", "Partia Republika≈Ñska"),
+                    labels=c("Partia Demokratyczna", "Partia RepublikaÒska"),
                     name="Parta") +
   scale_y_continuous(labels = scales::percent) + 
   xlab("") +
-  ylab("Udzia≈Ç partii w≈õr√≥d wszystkich przem√≥w") +
+  ylab("Udzia≥ partii wúrÛd wszystkich przemÛw") +
   theme_minimal()
 
-### Sk≈Çad przem√≥w senackich
+### Sk≥ad przemÛw senackich
 speeches_df %>%
   filter(house=='Senate') %>%
   ggplot(aes(x=factor(1), y=..count../sum(..count..), fill=club)) +
   geom_bar(width=1) +
   coord_polar("y") +
   scale_fill_manual(values=c('#0015BC', "#DE0100"),
-                    labels=c("Partia Demokratyczna", "Partia Republika≈Ñska"),
+                    labels=c("Partia Demokratyczna", "Partia RepublikaÒska"),
                     name="Parta") +
   scale_y_continuous(labels = scales::percent) + 
   xlab("") +
-  ylab("Udzia≈Ç partii w≈õr√≥d przem√≥w senackich") +
+  ylab("Udzia≥ partii wúrÛd przemÛw senackich") +
   theme_minimal()
 
-###Sk≈Çad przem√≥w w Izbie
+###Sk≥ad przemÛw w Izbie
 speeches_df %>%
   filter(house %in% c('HoR', 'EoR')) %>%
   ggplot(aes(x=factor(1), y=..count../sum(..count..), fill=club)) +
   geom_bar(width=1) +
   coord_polar("y") +
   scale_fill_manual(values=c('#0015BC', "#DE0100"),
-                    labels=c("Partia Demokratyczna", "Partia Republika≈Ñska"),
+                    labels=c("Partia Demokratyczna", "Partia RepublikaÒska"),
                     name="Parta") +
   scale_y_continuous(labels = scales::percent) + 
   xlab("") +
-  ylab("Udzia≈Ç partii w≈õr√≥d przem√≥w kongresowych") +
+  ylab("Udzia≥ partii wúrÛd przemÛw kongresowych") +
   theme_minimal()
